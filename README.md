@@ -7,6 +7,9 @@ The SSRS Reports will help DBA to monitor the SQL Servers
 **SQL Server Service Status** - Status of all the services contain the keyword "sql" running on Servers that is being collected and stored in a centralised database. 
 SSRS Report fetch the data from cetralised SQL Server. Report is being refreshed in every 5 seconds. Service status is being updated according to the Powershell script scheduled in Windows Task Scheduler.
 
+![image](https://user-images.githubusercontent.com/25771745/148194585-4a67cc43-77c1-4291-80ea-d44dea467c6b.png)
+
+
 **Pre-requisits:**
 
 SQL Server

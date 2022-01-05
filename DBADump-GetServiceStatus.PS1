@@ -1,6 +1,11 @@
-function SQLDashboard-Service{
-  
-    $SQLServers=get-content C:\SQLDashboard\SQLServers.txt
+function DBADump-GetServiceStatus{
+	
+	Param(
+	$ServerList,
+	$DBADumpServer,
+	$DBADumpDB
+	)
+    $SQLServers=get-content $serverlist
     foreach($SQLServer in $SQLServers){
 	$services=@()
         $services=Get-Service -Computer $SQLServer  | Where-Object{$_.DisplayName -like '*SQL Server*'} | select Name,Status
@@ -11,14 +16,14 @@ function SQLDashboard-Service{
 $insertQuery="sp_SQLServices '$SQLServer','$ServiceName','$serviceStatus'"
 
   try{
-             invoke-sqlcmd -Query $insertQuery -ServerInstance localhost -Database SQLDashboard
+             invoke-sqlcmd -Query $insertQuery -ServerInstance $DBADumpServer -Database $DBADumpDB
  }
     catch{
         "Error"
              }
         }
-   
-    }
+  } 
+
 }
 
-SQLDashboard-Service
+DBADump-GetServiceStatus -ServerList 'C:\SQLDashboard\SQLServers.txt' -DBADumpServer localhost -DBADumpDB DBADumpDB

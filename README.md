@@ -41,6 +41,11 @@ DBADump-GetServiceStatus -ServerList 'C:\SQLDashboard\SQLServers.txt' -DBADumpSe
 
 •	Schedule DBADump-GetServiceStatus.PS1 to run in Windows Task Scheduler.
 
+                  
+              Action : Start a program
+              Program/Script : Powershell.exe
+              Add Arguments : -ExecutionPolicy Bypass -File C:\Users\Name\Desktop\Dashboard\SQLDashboard-main\SQLDashboard-main\DBADump-GetServiceStatus.PS1
+                  
 •	It is recommended to run it in every 1 min.
 
 •	Open SSRS Report server (Eg:  http://localhost/Reports)

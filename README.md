@@ -1,6 +1,6 @@
 # SQLDashboard
 
-The SSRS Reports will help DBA to monitor the SQL Servers
+This SSRS Reports will help DBA to monitor the SQL Servers.
 
 **Reports Hosted So Far:**
 

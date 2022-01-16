@@ -8,7 +8,7 @@ function DBADump-GetServiceStatus{
     $SQLServers=get-content $serverlist
     foreach($SQLServer in $SQLServers){
 	$services=@()
-        $services=Get-Service -Computer $SQLServer  | Where-Object{$_.DisplayName -like '*SQL Server*'} | select Name,Status
+        $services=Get-Service -Computer $SQLServer  | Where-Object{$_.DisplayName -like '*SQL Server*' -and $_.StartType -ne 'Disabled'} | select Name,Status
         foreach($service in $services){
              $ServiceName=$service.name
              $serviceStatus=$service.Status
